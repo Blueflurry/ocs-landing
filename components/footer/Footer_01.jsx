@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import LogoDark from "../logo/LogoDark";
 
 const Footer_01 = () => {
     return (
@@ -8,14 +9,7 @@ const Footer_01 = () => {
                 <div className="h-[1px] w-full bg-[#DBD6CF]" />
                 <div className="lg grid grid-cols-1 gap-8 items-center py-[30px] md:grid-cols-[1fr_auto_auto] xl:grid-cols-[1fr_auto_auto] xl:gap-20">
                     <div className="flex flex-col gap-y-6">
-                        <Link href="/" className="inline-block">
-                            <Image
-                                src="/assets/images/logo.svg"
-                                alt="logo"
-                                width={60}
-                                height={24}
-                            />
-                        </Link>
+                        <LogoDark />
                         {/* <p>
                             Our mission is to harness the power of AI to solve
                             complex business challenges &amp; decision-makers
@@ -32,10 +26,7 @@ const Footer_01 = () => {
                     <div className="flex flex-col gap-y-6">
                         <ul className="flex flex-col gap-y-[10px] capitalize">
                             <li>
-                                <Link
-                                    href="/"
-                                    className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
-                                >
+                                <Link href="/" className="transition-all duration-300 ease-linear hover:text-colorOrangyRed">
                                     Terms and Conditions
                                 </Link>
                             </li>
@@ -44,10 +35,7 @@ const Footer_01 = () => {
                     <div className="flex flex-col gap-y-6">
                         <ul className="flex flex-col gap-y-[10px] capitalize">
                             <li>
-                                <Link
-                                    href="/"
-                                    className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
-                                >
+                                <Link href="/" className="transition-all duration-300 ease-linear hover:text-colorOrangyRed">
                                     Privacy Policy
                                 </Link>
                             </li>
@@ -59,10 +47,7 @@ const Footer_01 = () => {
 
                 {/* Footer Bottom */}
                 <div className="py-9 text-center">
-                    <p>
-                        © Copyright {new Date().getFullYear()}, All Rights
-                        Reserved
-                    </p>
+                    <p>© Copyright {new Date().getFullYear()}, All Rights Reserved</p>
                 </div>
                 {/* Footer Bottom */}
             </div>

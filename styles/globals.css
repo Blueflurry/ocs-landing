@@ -165,3 +165,77 @@ h5 {
         width: auto;
     }
 }
+
+.locationModal {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column-reverse;
+    padding: 120px 40px 40px;
+    gap: 0px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    color: white;
+    opacity: 1;
+    transition: all 120ms linear;
+}
+
+.locationModal.hide {
+    opacity: 0;
+    display: none;
+}
+
+.locationModal video {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+}
+
+.locationModal .close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.locationModal .text {
+    width: 100%;
+    max-width: 400px;
+}
+
+.locationModal .text .desc {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 992px) {
+    .locationModal {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.94);
+        z-index: 9999;
+        color: white;
+        opacity: 1;
+        transition: all 120ms linear;
+    }
+}

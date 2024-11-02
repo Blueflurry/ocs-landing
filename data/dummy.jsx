@@ -1,4 +1,4 @@
-export const WHATSAPPLINK = "https://wa.me/91XXXXXXXXXX?text=Hi%20there!%20I%20would%20like%20to%20know%20more%20about%20your%20services.";
+export const WHATSAPPLINK = "https://wa.me/919899992197?text=Hi%20there!%20I%20am%20looking%20for%20a%20luxury%20stay%20in...%20";
 
 export const TESTIMONIALS = [
     {
@@ -41,20 +41,24 @@ export const TESTIMONIALS = [
 
 export const LOCATIONS = [
     {
+        description:
+            "Immerse yourself in Bali's breathtaking landscapes, with luxurious villas nestled among lush jungles and serene beaches. Your paradise escape awaits—book now.",
         locationImgSrc: "/assets/images/location-1.svg",
-        locationVideoSrc: "/assets/images/location-1.svg",
+        locationVideoSrc: "/videos/demo.mp4",
         stayName: "Uluwatu",
         locationName: "Bali",
         spotsCovered: "Uluwatu, Ubud, Nusa Penida, +15",
         staysBooked: 30,
         status: "Booking Fast",
         progress: "0.8",
-        progressColor: "red",
+        progressColor: "#FFB401",
         moreStaysAvailable: 240,
     },
     {
+        description:
+            "Experience Spain’s vibrant culture, sunlit coastlines, and stunning architecture from the comfort of a premium stay. Discover the charm of Spain with a reservation today.",
         locationImgSrc: "/assets/images/location-7.jpg",
-        locationVideoSrc: "/assets/images/location-1.svg",
+        locationVideoSrc: "/videos/demo.mp4",
         stayName: "Uluwatu",
         locationName: "Spain",
         spotsCovered: "Barcelona, Madrid, Mejorca, Seville, +5",
@@ -62,54 +66,62 @@ export const LOCATIONS = [
         moreStaysAvailable: 20,
         status: "SOLD OUT",
         progress: "1",
-        progressColor: "red",
+        progressColor: "#f43f5e",
     },
     {
+        description:
+            "Savor Goa's golden beaches and vibrant nightlife from an exquisite villa. Make your tropical escape unforgettable—reserve your perfect getaway now.",
         locationImgSrc: "/assets/images/location-2.svg",
-        locationVideoSrc: "/assets/images/location-1.svg",
+        locationVideoSrc: "/videos/demo.mp4",
         stayName: "Uluwatu",
         locationName: "Goa",
         spotsCovered: "Calangute, Baga, Palolem, +28",
         staysBooked: 260,
-        moreStaysAvailable: 4000,
+        moreStaysAvailable: 900,
         status: "Booking Fast",
-        progress: "0.8",
-        progressColor: "red",
+        progress: "0.65",
+        progressColor: "#FFB401",
     },
     {
+        description:
+            "Dive into Thailand’s exotic beauty with stays that bring you close to pristine beaches, bustling markets, and tranquil temples. Book your Thai adventure today.",
         locationImgSrc: "/assets/images/location-3.svg",
-        locationVideoSrc: "/assets/images/location-1.svg",
+        locationVideoSrc: "/videos/demo.mp4",
         stayName: "Uluwatu",
         locationName: "Thailand",
         spotsCovered: "Bangkok, Phuket, Koh Samui, +6",
         staysBooked: 10,
         moreStaysAvailable: 120,
-        status: "Booking Fast",
-        progress: "0.8",
-        progressColor: "red",
+        status: "Popular",
+        progress: "0.5",
+        progressColor: "#84cc16",
     },
     {
+        description:
+            "Nestle into the scenic Himalayas with a peaceful retreat in Himachal. Find solace in nature’s beauty—reserve your mountain escape now.",
         locationImgSrc: "/assets/images/location-4.svg",
-        locationVideoSrc: "/assets/images/location-1.svg",
+        locationVideoSrc: "/videos/demo.mp4",
         stayName: "Uluwatu",
         locationName: "Himachal",
         spotsCovered: "Manali, Mussoorie, Kasauli",
         staysBooked: 500,
-        moreStaysAvailable: 4000,
-        status: "Booking Fast",
-        progress: "0.8",
-        progressColor: "red",
+        moreStaysAvailable: 900,
+        status: "Available",
+        progress: "0.3",
+        progressColor: "#4ade80",
     },
     {
+        description:
+            "Step into royalty with a stay in Rajasthan’s grand heritage properties, surrounded by forts, palaces, and rich traditions. Book your regal experience today.",
         locationImgSrc: "/assets/images/location-5.svg",
-        locationVideoSrc: "/assets/images/location-1.svg",
+        locationVideoSrc: "/videos/demo.mp4",
         stayName: "Uluwatu",
         locationName: "Rajasthan",
         spotsCovered: "Jaipur, Udaipur",
         staysBooked: 350,
         moreStaysAvailable: 420,
-        status: "Booking Fast",
-        progress: "0.8",
-        progressColor: "red",
+        status: "Popular",
+        progress: "0.5",
+        progressColor: "#84cc16",
     },
 ];

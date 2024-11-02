@@ -10,13 +10,23 @@ import Footer_01 from "@/components/footer/Footer_01";
 import VideoComponent from "@/components/videoComponent/VideoComponent";
 import { LOCATIONS, TESTIMONIALS, WHATSAPPLINK } from "@/data/dummy";
 import ProgressBar from "@/components/progressBar/progressBar";
+import LocationModal from "@/components/locationModal/locationModal";
+import { useState } from "react";
 
 function Home() {
     const [activeIndex, handleAccordion] = useAccordion(0);
 
     const [activeTab, handleTab] = useTabs();
 
-    const showStays = (videoSrc) => () => {};
+    const [selectedLocation, setSelectedLocation] = useState({});
+    const [showModal, setShowModal] = useState(false);
+
+    const showStays = (location) => () => {
+        setSelectedLocation(location);
+        setShowModal(true);
+    };
+
+    const closeModal = () => setShowModal(false);
 
     return (
         <div className="page-wrapper relative z-[1] bg-white">
@@ -26,7 +36,7 @@ function Home() {
             <main className="main-wrapper relative overflow-hidden">
                 {/*...::: Hero Section Start :::... */}
                 <section id="section-hero">
-                    <div className="relative z-[1] overflow-hidden rounded-bl-[30px] rounded-br-[30px] bg-black pb-20 pt-28 lg:rounded-bl-[50px] lg:rounded-br-[50px] lg:pb-24 lg:pt-32 xl:pt-40 xxl:pb-[133px] xxl:pt-[195px]">
+                    <div className="relative z-[1] rounded-bl-[30px] rounded-br-[30px] bg-black pb-20 pt-28 lg:rounded-bl-[50px] lg:rounded-br-[50px] lg:pb-24 lg:pt-32 xl:pt-40 xxl:pb-[133px] xxl:pt-[195px]">
                         <div className="global-container">
                             <div className="mb-14 flex flex-col items-center text-center lg:mb-20">
                                 <h1 className="jos slide-from-bottom mb-6 max-w-[510px] lg:max-w-[768px] xl:max-w-[1076px] text-white">
@@ -41,7 +51,7 @@ function Home() {
                                         target="_blank"
                                         className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
                                     >
-                                        Find Your Perfect Stay
+                                        Find My Perfect Stay
                                     </Link>
                                 </div>
                                 <div className="flex flax-wrap justify-center items-center	">
@@ -259,7 +269,7 @@ function Home() {
                                     target="_blank"
                                     className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
                                 >
-                                    Find Your Perfect Stay
+                                    Find My Perfect Stay
                                 </Link>
                             </div>
                             <div className="flex flax-wrap justify-center items-center	">
@@ -281,8 +291,8 @@ function Home() {
                             {/* Brand Partners */}
                             <div className="pb-20 pt-20 xl:pb-[120px]">
                                 <div className="jos mx-auto mb-12 max-w-[715px] text-center lg:mb-16">
-                                    <p className="text-3xl">We are partnered with the biggest</p>
-                                    <p className="text-3xl">brands in Luxury Stays</p>
+                                    <p className="text-xl md:text-3md">We are partnered with the biggest</p>
+                                    <p className="text-xl md:text-3md">brands in Luxury Stays</p>
                                 </div>
 
                                 <div className="jos brand-slider" data-jos_animation="fade">
@@ -415,10 +425,10 @@ function Home() {
                                                     </button>
                                                 ) : (
                                                     <button
-                                                        onClick={showStays(item.locationVideoSrc)}
+                                                        onClick={showStays(item)}
                                                         className="button rounded-[50px] border-0 px-20 py-4 mt-4 text-black bg-white text-xl after:bg-colorOrangyRed hover:text-black"
                                                     >
-                                                        View {item.moreStaysAvailable}+ Options
+                                                        View {item.moreStaysAvailable}+ Stays
                                                     </button>
                                                 )}
                                             </div>
@@ -614,7 +624,7 @@ function Home() {
                                         target="_blank"
                                         className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
                                     >
-                                        Find Your Perfect Stay
+                                        Find My Perfect Stay
                                     </Link>
                                 </div>
                                 <div className="flex flax-wrap justify-center items-center	">
@@ -634,7 +644,7 @@ function Home() {
                 <section className="testimonial-section">
                     {/* Section Spacer */}
                     <div id="reviews">
-                        <div className="pb-20 pt-20">
+                        <div className="pb-20 pt-[120px]">
                             {/* Section Container */}
                             <div className="global-container">
                                 {/* Section Content Block */}
@@ -688,466 +698,175 @@ function Home() {
                     {/* Section Spacer */}
                 </section>
                 {/*...::: Testimonial Section Start :::... */}
-                {/*...::: Core Value Section Start :::... */}
-                <section id="core-value">
+                <div id="about"></div>
+                {/*...::: About Us Section Start :::... */}
+                <section id="about-hero-section">
                     {/* Section Spacer */}
-                    <div className="jos mx-5 rounded-[50px] bg-black px-[20px] py-20 sm:px-[50px] md:mx-[50px] lg:px-[100px] xl:py-[130px]">
+                    <div className="mb-20 lg:mb-24 mt-[40px]">
                         {/* Section Container */}
                         <div className="global-container">
                             {/* Section Content Block */}
-                            <div className="mb-10 text-center lg:mb-12 xl:mb-20">
-                                <div className="mx-auto md:max-w-xl lg:max-w-3xl xl:max-w-[745px]">
-                                    <h2 className="text-white">The core values behind our work</h2>
+                            <div className="jos mb-10 text-center lg:mb-12 xl:mb-20">
+                                <div className="mx-auto md:max-w-xl lg:max-w-3xl xl:max-w-[950px]">
+                                    <h2 style={{ lineHeight: "1.1" }}>At OneClick Stays, we help you find luxury in budget</h2>
+                                    <p className="mt-[24px]">
+                                        OneClick Stays is a global travel and stays startup born in India. We are the 6th largest stays aggregator in
+                                        Goa and exclusive brand partners in Bali and Thailand. Book with us for a guaranteed luxurious experience.
+                                    </p>
                                 </div>
                             </div>
                             {/* Section Content Block */}
-                            {/* Horizontal Separator */}
-                            <div className="mb-6 h-[4px] w-full rounded bg-colorCodGray sm:mb-0" />
-                            {/* Core Value list */}
-                            <ul className="grid grid-cols-1 justify-between gap-6 md:grid-cols-2 xxl:flex xxl:flex-nowrap">
-                                {/* Core Value Item */}
-                                <li className="relative after:absolute after:-top-[3px] after:left-0 after:h-[5px] after:w-full after:scale-x-0 after:rounded-[5px] after:bg-colorOrangyRed after:transition-all after:duration-300 hover:after:scale-x-0 sm:pt-6 lg:pt-10 xxl:hover:after:scale-x-100">
-                                    <div className="mb-3 flex items-center gap-x-3 md:mb-6">
-                                        <div className="h-[30px] w-[30px]">
-                                            <Image
-                                                src="/assets/img_placeholder/th-1/core-value-icon-1.svg"
-                                                alt="core-value-icon-1"
-                                                width={30}
-                                                height={30}
-                                            />
-                                        </div>
-                                        <h4 className="flex-1 text-white">Innovation</h4>
-                                    </div>
-                                    <p className="text-lg text-white lg:text-[21px]">We’re committed to exploring new technologies, and finding</p>
-                                </li>
-                                {/* Core Value Item */}
-                                {/* Core Value Item */}
-                                <li className="relative after:absolute after:-top-[3px] after:left-0 after:h-[5px] after:w-full after:scale-x-0 after:rounded-[5px] after:bg-colorOrangyRed after:transition-all after:duration-300 hover:after:scale-x-0 sm:pt-6 lg:pt-10 xxl:hover:after:scale-x-100">
-                                    <div className="mb-3 flex items-center gap-x-3 md:mb-6">
-                                        <div className="h-[30px] w-[30px]">
-                                            <Image
-                                                src="/assets/img_placeholder/th-1/core-value-icon-2.svg"
-                                                alt="core-value-icon-2"
-                                                width={30}
-                                                height={30}
-                                            />
-                                        </div>
-                                        <h4 className="flex-1 text-white">Excellence</h4>
-                                    </div>
-                                    <p className="text-lg text-white lg:text-[21px]">
-                                        We set high standards for our work &amp; we are dedicated team
-                                    </p>
-                                </li>
-                                {/* Core Value Item */}
-                                {/* Core Value Item */}
-                                <li className="relative after:absolute after:-top-[3px] after:left-0 after:h-[5px] after:w-full after:scale-x-0 after:rounded-[5px] after:bg-colorOrangyRed after:transition-all after:duration-300 hover:after:scale-x-0 sm:pt-6 lg:pt-10 xxl:hover:after:scale-x-100">
-                                    <div className="mb-3 flex items-center gap-x-3 md:mb-6">
-                                        <div className="h-[30px] w-[30px]">
-                                            <Image
-                                                src="/assets/img_placeholder/th-1/core-value-icon-3.svg"
-                                                alt="core-value-icon-3"
-                                                width={30}
-                                                height={30}
-                                            />
-                                        </div>
-                                        <h4 className="flex-1 text-white">Collaboration</h4>
-                                    </div>
-                                    <p className="text-lg text-white lg:text-[21px]">We believe in the power of collaboration, working closely</p>
-                                </li>
-                                {/* Core Value Item */}
-                                {/* Core Value Item */}
-                                <li className="relative after:absolute after:-top-[3px] after:left-0 after:h-[5px] after:w-full after:scale-x-0 after:rounded-[5px] after:bg-colorOrangyRed after:transition-all after:duration-300 hover:after:scale-x-0 sm:pt-6 lg:pt-10 xxl:hover:after:scale-x-100">
-                                    <div className="mb-3 flex items-center gap-x-3 md:mb-6">
-                                        <div className="h-[30px] w-[30px]">
-                                            <Image
-                                                src="/assets/img_placeholder/th-1/core-value-icon-4.svg"
-                                                alt="core-value-icon-4"
-                                                width={30}
-                                                height={30}
-                                            />
-                                        </div>
-                                        <h4 className="flex-1 text-white">Integrity</h4>
-                                    </div>
-                                    <p className="text-lg text-white lg:text-[21px]">We uphold the highest ethical honesty in all our interactions</p>
-                                </li>
-                                {/* Core Value Item */}
-                            </ul>
-                            {/* Core Value list */}
+                            {/* About Hero Image */}
+                            <div className="jos overflow-hidden rounded-3xl" data-jos_animation="zoom">
+                                <Image
+                                    src="/assets/img_placeholder/th-1/about-hero-image.jpg"
+                                    alt="about-hero-image"
+                                    width={1296}
+                                    height={650}
+                                    className="h-full w-full object-cover"
+                                />
+                            </div>
+                            {/* About Hero Image */}
                         </div>
                         {/* Section Container */}
                     </div>
                     {/* Section Spacer */}
                 </section>
-                {/*...::: Core Value Section End :::... */}
+                {/*...::: About Us Section End :::... */}
                 {/*...::: Team Section Start :::... */}
                 <section id="team-section">
+                    {/* Section Container */}
+                    <div className="global-container">
+                        {/* Team Member List */}
+                        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-20 mt-10 xl:mb-[120px] xl:mt-[60px]">
+                            {/* Team Member Item */}
+                            <li className="jos rounded-[20px] bg-colorLinenRuffle p-[20px]" data-jos_animation="flip" data-jos_delay="0.1">
+                                <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
+                                    <Image
+                                        src="/assets/img_placeholder/th-1/team-member-img-1.jpg"
+                                        alt="team-member-img-1"
+                                        width={376}
+                                        height={400}
+                                        className="h-full w-full object-cover"
+                                    />
+                                </div>
+                                <div className="mt-5 text-center">
+                                    <span className="font-dmSans text-[26px] leading-[1.33] hover:text-colorOrangyRed xxl:text-[30px]">
+                                        Naman Thakur
+                                    </span>
+                                    <br />
+                                    <span className="text-[21px]">Founder & CEO</span>
+                                </div>
+                            </li>
+                            {/* Team Member Item */}
+                            {/* Team Member Item */}
+                            <li className="jos rounded-[20px] bg-colorLinenRuffle p-[20px]" data-jos_animation="flip" data-jos_delay="0.1">
+                                <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
+                                    <Image
+                                        src="/assets/img_placeholder/th-1/team-member-img-1.jpg"
+                                        alt="team-member-img-1"
+                                        width={376}
+                                        height={400}
+                                        className="h-full w-full object-cover"
+                                    />
+                                </div>
+                                <div className="mt-5 text-center">
+                                    <span className="font-dmSans text-[26px] leading-[1.33] hover:text-colorOrangyRed xxl:text-[30px]">
+                                        Ujjwal Batra
+                                    </span>
+                                    <br />
+                                    <span className="text-[21px]">Co-Founder & COO</span>
+                                </div>
+                            </li>
+                            {/* Team Member Item */}
+                            {/* Team Member Item */}
+                            <li className="jos rounded-[20px] bg-colorLinenRuffle p-[20px]" data-jos_animation="flip" data-jos_delay="0.1">
+                                <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
+                                    <Image
+                                        src="/assets/img_placeholder/th-1/team-member-img-1.jpg"
+                                        alt="team-member-img-1"
+                                        width={376}
+                                        height={400}
+                                        className="h-full w-full object-cover"
+                                    />
+                                </div>
+                                <div className="mt-5 text-center">
+                                    <span className="font-dmSans text-[26px] leading-[1.33] hover:text-colorOrangyRed xxl:text-[30px]">
+                                        Siddhant Jain
+                                    </span>
+                                    <br />
+                                    <span className="text-[21px]">Chief Technical Officer</span>
+                                </div>
+                            </li>
+                            {/* Team Member Item */}
+                        </ul>
+                        {/* Team Member List */}
+                    </div>
+                    {/* Section Container */}
+                </section>
+                {/*...::: Team Section End :::... */}
+                {/*...::: Content Section Start :::... */}
+                <div id="contact"></div>
+                <section id="content-section-2">
                     {/* Section Spacer */}
-                    <div className="py-20 xl:py-[130px]">
+                    <div className="pb-20 pt-[40px] xl:pb-[120px]">
                         {/* Section Container */}
                         <div className="global-container">
-                            {/* Section Content Block */}
-                            {/* Section Content Block */}
-                            {/* Team Member List */}
-                            <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                                {/* Team Member Item */}
-                                <li className="jos rounded-[20px] bg-colorLinenRuffle p-[20px]" data-jos_animation="flip" data-jos_delay="0.1">
-                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
-                                        <Image
-                                            src="/assets/img_placeholder/th-1/team-member-img-1.jpg"
-                                            alt="team-member-img-1"
-                                            width={376}
-                                            height={400}
-                                            className="h-full w-full object-cover"
-                                        />
+                            <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 xl:grid-cols-[minmax(0,_1.3fr)_1fr]">
+                                {/* Content Left Block */}
+                                <div className="jos order-2 overflow-hidden rounded-md" data-jos_animation="fade-left">
+                                    <Image
+                                        src="/assets/img_placeholder/th-1/about-image.png"
+                                        alt="content-image-2"
+                                        width={526}
+                                        height={550}
+                                        className="h-auto w-full"
+                                    />
+                                </div>
+                                {/* Content Left Block */}
+                                {/* Content Right Block */}
+                                <div className="jos order-1" data-jos_animation="fade-right">
+                                    {/* Section Content Block */}
+                                    <div className="mb-6">
+                                        <h2>Delivering the best solutions with AI</h2>
                                     </div>
-                                    <div className="mt-5">
+                                    {/* Section Content Block */}
+                                    <div className="text-lg leading-[1.4] lg:text-[21px]">
+                                        <p className="mb-7 last:mb-0">
+                                            Our mission is to empower businesses with AI-powered solutions that increase productivity, improve
+                                            decision-making and drive growth.
+                                        </p>
+                                        <p className="mb-7 last:mb-0">
+                                            Since 2016 we have been passionate about helping our clients harness With a team of AI experts and data
+                                            scientists their full potential &amp; stay competitive in an increasingly digital world.
+                                        </p>
                                         <Link
-                                            href="/team-details"
-                                            className="font-dmSans text-[26px] leading-[1.33] hover:text-colorOrangyRed xxl:text-[30px]"
+                                            href="/contact"
+                                            className="button mt-5 rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
                                         >
-                                            Mr. Abraham Maslo
+                                            Get in touch
                                         </Link>
-                                        <div className="mt-3 flex flex-col justify-between gap-3 xxl:flex-row xxl:flex-wrap xxl:items-center">
-                                            <span className="text-[21px]">Chief AI Officer</span>
-                                            <ul className="mt-auto flex gap-x-[15px]">
-                                                <li>
-                                                    <Link
-                                                        rel="noopener noreferrer"
-                                                        href="http://www.facebook.com"
-                                                        className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
-                                                    >
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/facebook-icon-white.svg"
-                                                            alt="facebook"
-                                                            width={14}
-                                                            height={14}
-                                                            className="opacity-100 group-hover:opacity-0"
-                                                        />
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/facebook-icon-black.svg"
-                                                            alt="facebook"
-                                                            width={14}
-                                                            height={14}
-                                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                                                        />
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link
-                                                        rel="noopener noreferrer"
-                                                        href="http://www.twitter.com"
-                                                        className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
-                                                    >
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/twitter-icon-white.svg"
-                                                            alt="twitter"
-                                                            width={14}
-                                                            height={14}
-                                                            className="opacity-100 group-hover:opacity-0"
-                                                        />
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/twitter-icon-black.svg"
-                                                            alt="twitter"
-                                                            width={14}
-                                                            height={14}
-                                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                                                        />
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link
-                                                        rel="noopener noreferrer"
-                                                        href="http://www.linkedin.com"
-                                                        className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
-                                                    >
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/linkedin-icon-white.svg"
-                                                            alt="linkedin"
-                                                            width={14}
-                                                            height={14}
-                                                            className="opacity-100 group-hover:opacity-0"
-                                                        />
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/linkedin-icon-black.svg"
-                                                            alt="linkedin"
-                                                            width={14}
-                                                            height={14}
-                                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                                                        />
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link
-                                                        rel="noopener noreferrer"
-                                                        href="http://www.instagram.com"
-                                                        className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
-                                                    >
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/instagram-icon-white.svg"
-                                                            alt="instagram"
-                                                            width={14}
-                                                            height={14}
-                                                            className="opacity-100 group-hover:opacity-0"
-                                                        />
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/instagram-icon-black.svg"
-                                                            alt="instagram"
-                                                            width={14}
-                                                            height={14}
-                                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                                                        />
-                                                    </Link>
-                                                </li>
-                                            </ul>
-                                        </div>
                                     </div>
-                                </li>
-                                {/* Team Member Item */}
-                                {/* Team Member Item */}
-                                <li className="jos rounded-[20px] bg-colorLinenRuffle p-[20px]" data-jos_animation="flip" data-jos_delay="0.2">
-                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
-                                        <Image
-                                            src="/assets/img_placeholder/th-1/team-member-img-2.jpg"
-                                            alt="team-member-img-2"
-                                            width={376}
-                                            height={400}
-                                            className="h-full w-full object-cover"
-                                        />
-                                    </div>
-                                    <div className="mt-5">
-                                        <Link
-                                            href="/team-details"
-                                            className="font-dmSans text-[26px] leading-[1.33] hover:text-colorOrangyRed xxl:text-[30px]"
-                                        >
-                                            Willium Robert
-                                        </Link>
-                                        <div className="mt-3 flex flex-col justify-between gap-3 xxl:flex-row xxl:flex-wrap xxl:items-center">
-                                            <span className="text-[21px]">Data Engineer</span>
-                                            <ul className="mt-auto flex gap-x-[15px]">
-                                                <li>
-                                                    <Link
-                                                        rel="noopener noreferrer"
-                                                        href="http://www.facebook.com"
-                                                        className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
-                                                    >
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/facebook-icon-white.svg"
-                                                            alt="facebook"
-                                                            width={14}
-                                                            height={14}
-                                                            className="opacity-100 group-hover:opacity-0"
-                                                        />
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/facebook-icon-black.svg"
-                                                            alt="facebook"
-                                                            width={14}
-                                                            height={14}
-                                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                                                        />
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link
-                                                        rel="noopener noreferrer"
-                                                        href="http://www.twitter.com"
-                                                        className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
-                                                    >
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/twitter-icon-white.svg"
-                                                            alt="twitter"
-                                                            width={14}
-                                                            height={14}
-                                                            className="opacity-100 group-hover:opacity-0"
-                                                        />
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/twitter-icon-black.svg"
-                                                            alt="twitter"
-                                                            width={14}
-                                                            height={14}
-                                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                                                        />
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link
-                                                        rel="noopener noreferrer"
-                                                        href="http://www.linkedin.com"
-                                                        className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
-                                                    >
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/linkedin-icon-white.svg"
-                                                            alt="linkedin"
-                                                            width={14}
-                                                            height={14}
-                                                            className="opacity-100 group-hover:opacity-0"
-                                                        />
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/linkedin-icon-black.svg"
-                                                            alt="linkedin"
-                                                            width={14}
-                                                            height={14}
-                                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                                                        />
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link
-                                                        rel="noopener noreferrer"
-                                                        href="http://www.instagram.com"
-                                                        className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
-                                                    >
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/instagram-icon-white.svg"
-                                                            alt="instagram"
-                                                            width={14}
-                                                            height={14}
-                                                            className="opacity-100 group-hover:opacity-0"
-                                                        />
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/instagram-icon-black.svg"
-                                                            alt="instagram"
-                                                            width={14}
-                                                            height={14}
-                                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                                                        />
-                                                    </Link>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                {/* Team Member Item */}
-                                {/* Team Member Item */}
-                                <li className="jos rounded-[20px] bg-colorLinenRuffle p-[20px]" data-jos_animation="flip" data-jos_delay="0.3">
-                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
-                                        <Image
-                                            src="/assets/img_placeholder/th-1/team-member-img-3.jpg"
-                                            alt="team-member-img-3"
-                                            width={376}
-                                            height={400}
-                                            className="h-full w-full object-cover"
-                                        />
-                                    </div>
-                                    <div className="mt-5">
-                                        <Link
-                                            href="/team-details"
-                                            className="font-dmSans text-[26px] leading-[1.33] hover:text-colorOrangyRed xxl:text-[30px]"
-                                        >
-                                            Henry Fayol
-                                        </Link>
-                                        <div className="mt-3 flex flex-col justify-between gap-3 xxl:flex-row xxl:flex-wrap xxl:items-center">
-                                            <span className="text-[21px]">Research Scientist</span>
-                                            <ul className="mt-auto flex gap-x-[15px]">
-                                                <li>
-                                                    <Link
-                                                        rel="noopener noreferrer"
-                                                        href="http://www.facebook.com"
-                                                        className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
-                                                    >
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/facebook-icon-white.svg"
-                                                            alt="facebook"
-                                                            width={14}
-                                                            height={14}
-                                                            className="opacity-100 group-hover:opacity-0"
-                                                        />
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/facebook-icon-black.svg"
-                                                            alt="facebook"
-                                                            width={14}
-                                                            height={14}
-                                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                                                        />
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link
-                                                        rel="noopener noreferrer"
-                                                        href="http://www.twitter.com"
-                                                        className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
-                                                    >
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/twitter-icon-white.svg"
-                                                            alt="twitter"
-                                                            width={14}
-                                                            height={14}
-                                                            className="opacity-100 group-hover:opacity-0"
-                                                        />
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/twitter-icon-black.svg"
-                                                            alt="twitter"
-                                                            width={14}
-                                                            height={14}
-                                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                                                        />
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link
-                                                        rel="noopener noreferrer"
-                                                        href="http://www.linkedin.com"
-                                                        className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
-                                                    >
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/linkedin-icon-white.svg"
-                                                            alt="linkedin"
-                                                            width={14}
-                                                            height={14}
-                                                            className="opacity-100 group-hover:opacity-0"
-                                                        />
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/linkedin-icon-black.svg"
-                                                            alt="linkedin"
-                                                            width={14}
-                                                            height={14}
-                                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                                                        />
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link
-                                                        rel="noopener noreferrer"
-                                                        href="http://www.instagram.com"
-                                                        className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
-                                                    >
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/instagram-icon-white.svg"
-                                                            alt="instagram"
-                                                            width={14}
-                                                            height={14}
-                                                            className="opacity-100 group-hover:opacity-0"
-                                                        />
-                                                        <Image
-                                                            src="/assets/img_placeholder/th-1/instagram-icon-black.svg"
-                                                            alt="instagram"
-                                                            width={14}
-                                                            height={14}
-                                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                                                        />
-                                                    </Link>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            {/* Team Member List */}
+                                </div>
+                                {/* Content Right Block */}
+                            </div>
                         </div>
                         {/* Section Container */}
                     </div>
                     {/* Section Spacer */}
                 </section>
-                {/*...::: Team Section End :::... */}
-
-                {/* Body Background Shape 1 */}
-                <div className="orange-gradient-1 absolute -left-[15px] top-[61%] -z-[1] h-[400px] w-[400px] -rotate-[-9.022deg] rounded-[400px]"></div>
-
-                {/* Body Background Shape 2 */}
-                <div className="orange-gradient-2 absolute -left-[100px] top-[64%] -z-[1] h-[360px] w-[360px] -rotate-[-9.022deg] rounded-[360px]"></div>
+                {/*...::: Content Section End :::... */}
             </main>
             {/*...::: Footer Start :::... */}
             <Footer_01 />
             {/*...::: Footer End :::... */}
+            <LocationModal
+                title={selectedLocation?.locationName}
+                show={showModal}
+                closeModal={closeModal}
+                videoUrl={selectedLocation?.locationVideoSrc}
+                description={selectedLocation?.description}
+            />
         </div>
     );
 }

@@ -6,7 +6,7 @@ function CtaButton() {
         target="_blank"
         className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-xl  after:bg-white hover:border-white hover:text-black"
     >
-        Find Your Perfect Stay
+        Find My Perfect Stay
     </Link>;
 }
 
