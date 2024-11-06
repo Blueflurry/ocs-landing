@@ -36,7 +36,7 @@ function Home() {
             <main className="main-wrapper relative overflow-hidden">
                 {/*...::: Hero Section Start :::... */}
                 <section id="section-hero">
-                    <div className="relative z-[1] rounded-bl-[30px] rounded-br-[30px] bg-black pb-20 pt-28 lg:rounded-bl-[50px] lg:rounded-br-[50px] lg:pb-24 lg:pt-32 xl:pt-40 xxl:pb-[133px] xxl:pt-[195px]">
+                    <div className="relative z-[1]  bg-black pb-20 pt-28 lg:pb-24 lg:pt-32 xl:pt-40 xxl:pb-[133px] xxl:pt-[195px]">
                         <div className="global-container">
                             <div className="mb-14 flex flex-col items-center text-center lg:mb-20">
                                 <h1 className="jos slide-from-bottom mb-6 max-w-[510px] lg:max-w-[768px] xl:max-w-[1076px] text-white">
@@ -74,6 +74,276 @@ function Home() {
                     </div>
                 </section>
                 {/*...::: Hero Section End :::... */}
+
+                {/*...::: Hot Locations Section Start :::... */}
+                <section id="team-section">
+                    {/* Section Spacer */}
+                    <div id="locations">
+                        <div className="bg-black pt-20 pb-20 xl:pb-[100px]">
+                            {/* Section Container */}
+                            <div className="global-container">
+                                {/* Section Content Block */}
+                                <div className="jos mt-0 mb-10 text-center lg:mb-16 xl:mb-20">
+                                    <div className="mx-auto md:max-w-xs lg:max-w-xl xl:max-w-[746px]">
+                                        <h2 className="mb-2 text-center font-light text-white">Hot Locations</h2>
+                                        <h4 className="text-center text-gray-500">See our popular Stays</h4>
+                                    </div>
+                                </div>
+                                {/* Section Content Block */}
+                                {/* Hot Location List */}
+                                <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                                    {/* Hot Location Item 1 */}
+                                    {LOCATIONS.map((item, index) => (
+                                        <li key={"li" + index} className="jos rounded-[20px] p-[20px]" data-jos_animation="flip" data-jos_delay="0.1">
+                                            <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
+                                                <Image
+                                                    src={item.locationImgSrc}
+                                                    alt="location-img-1"
+                                                    width={376}
+                                                    height={400}
+                                                    className="h-full w-full object-cover"
+                                                />
+                                            </div>
+                                            <div className="mt-5 flex flex-col items-center">
+                                                <div className="font-dmSans text-[26px] text-white xxl:text-[30px]">{item.locationName}</div>
+                                                <div className="mt-1 flex flex-col items-center gap-4">
+                                                    <span className="text-[18px] text-gray-400">{item.spotsCovered}</span>
+                                                    {/* <span>🔥 {item.staysBooked} Stays booked today!</span> */}
+                                                    <span
+                                                        style={{
+                                                            textTransform: "uppercase",
+                                                            fontWeight: "600",
+                                                            color: item.progressColor,
+                                                            fontSize: "1rem",
+                                                        }}
+                                                    >
+                                                        {item.status}
+                                                    </span>
+                                                    <ProgressBar color={item.progressColor} progress={item.progress} />
+                                                </div>
+                                                {item.staysBooked >= item.moreStaysAvailable ? (
+                                                    <button
+                                                        disabled={true}
+                                                        className="button rounded-[50px] border-0 px-20 py-4 mt-4 text-white bg-[#1A1A1A] text-xl"
+                                                    >
+                                                        SOLD OUT
+                                                    </button>
+                                                ) : (
+                                                    <button
+                                                        onClick={showStays(item)}
+                                                        className="button rounded-[50px] border-0 px-20 py-4 mt-4 text-black bg-white text-xl after:bg-colorOrangyRed hover:text-black"
+                                                    >
+                                                        View {item.moreStaysAvailable}+ Stays
+                                                    </button>
+                                                )}
+                                            </div>
+                                        </li>
+                                    ))}
+
+                                    {/* Hot Location Item */}
+                                    {/* Hot Location Item */}
+                                    {/* <li
+                                    className="jos rounded-[20px] p-[20px]"
+                                    data-jos_animation="flip"
+                                    data-jos_delay="0.2"
+                                >
+                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
+                                        <Image
+                                            src="/assets/images/location-2.svg"
+                                            alt="location-img-2"
+                                            width={376}
+                                            height={400}
+                                            className="h-full w-full object-cover"
+                                        />
+                                    </div>
+                                    <div className="mt-5 flex flex-col items-center">
+                                        <div className="font-dmSans text-[26px] hover:text-colorOrangyRed xxl:text-[30px]">
+                                            Willium Robert
+                                        </div>
+                                        <div className="mt-3 flex flex-col items-center gap-1">
+                                            <span className="text-[21px]">
+                                                Uluwatu, Ubud, Nusa Penida, +15
+                                            </span>
+                                            <span>
+                                                🔥 30 Stays booked today!
+                                            </span>
+                                        </div>
+                                        <Link
+                                            href="/portfolio"
+                                            className="button rounded-[50px] border-2 px-20 py-4 mt-4 text-black text-xl  after:bg-black hover:bg-black hover:text-white"
+                                        >
+                                            View 240+ Stays
+                                        </Link>
+                                    </div>
+                                </li> */}
+                                    {/* Hot Location Item */}
+                                    {/* Hot Location Item */}
+                                    {/* <li
+                                    className="jos rounded-[20px] p-[20px]"
+                                    data-jos_animation="flip"
+                                    data-jos_delay="0.3"
+                                >
+                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
+                                        <Image
+                                            src="/assets/images/location-3.svg"
+                                            alt="location-img-3"
+                                            width={376}
+                                            height={400}
+                                            className="h-full w-full object-cover"
+                                        />
+                                    </div>
+                                    <div className="mt-5 flex flex-col items-center">
+                                        <div className="font-dmSans text-[26px] hover:text-colorOrangyRed xxl:text-[30px]">
+                                            Henry Fayol
+                                        </div>
+                                        <div className="mt-3 flex flex-col items-center gap-1">
+                                            <span className="text-[21px]">
+                                                Uluwatu, Ubud, Nusa Penida, +15
+                                            </span>
+                                            <span>
+                                                🔥 30 Stays booked today!
+                                            </span>
+                                        </div>
+                                        <Link
+                                            href="/portfolio"
+                                            className="button rounded-[50px] border-2 px-20 py-4 mt-4 text-black text-xl  after:bg-black hover:bg-black hover:text-white"
+                                        >
+                                            View 240+ Stays
+                                        </Link>
+                                    </div>
+                                </li> */}
+                                    {/* Hot Location Item */}
+                                    {/* Hot Location Item */}
+                                    {/* <li
+                                    className="jos rounded-[20px] p-[20px]"
+                                    data-jos_animation="flip"
+                                    data-jos_delay="0.4"
+                                >
+                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
+                                        <Image
+                                            src="/assets/images/location-4.svg"
+                                            alt="location-img-4"
+                                            width={376}
+                                            height={400}
+                                            className="h-full w-full object-cover"
+                                        />
+                                    </div>
+                                    <div className="mt-5 flex flex-col items-center">
+                                        <div className="font-dmSans text-[26px] hover:text-colorOrangyRed xxl:text-[30px]">
+                                            Henry Martine
+                                        </div>
+                                        <div className="mt-3 flex flex-col items-center gap-1">
+                                            <span className="text-[21px]">
+                                                Uluwatu, Ubud, Nusa Penida, +15
+                                            </span>
+                                            <span>
+                                                🔥 30 Stays booked today!
+                                            </span>
+                                        </div>
+                                        <Link
+                                            href="/portfolio"
+                                            className="button rounded-[50px] border-2 px-20 py-4 mt-4 text-black text-xl  after:bg-black hover:bg-black hover:text-white"
+                                        >
+                                            View 240+ Stays
+                                        </Link>
+                                    </div>
+                                </li> */}
+                                    {/* Hot Location Item */}
+                                    {/* Hot Location Item */}
+                                    {/* <li
+                                    className="jos rounded-[20px] p-[20px]"
+                                    data-jos_animation="flip"
+                                    data-jos_delay="0.5"
+                                >
+                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
+                                        <Image
+                                            src="/assets/images/location-5.svg"
+                                            alt="location-img-5"
+                                            width={376}
+                                            height={400}
+                                            className="h-full w-full object-cover"
+                                        />
+                                    </div>
+                                    <div className="mt-5 flex flex-col items-center">
+                                        <div className="font-dmSans text-[26px] hover:text-colorOrangyRed xxl:text-[30px]">
+                                            Jack Fox
+                                        </div>
+                                        <div className="mt-3 flex flex-col items-center gap-1">
+                                            <span className="text-[21px]">
+                                                Uluwatu, Ubud, Nusa Penida, +15
+                                            </span>
+                                            <span>
+                                                🔥 30 Stays booked today!
+                                            </span>
+                                        </div>
+                                        <Link
+                                            href="/portfolio"
+                                            className="button rounded-[50px] border-2 px-20 py-4 mt-4 text-black text-xl  after:bg-black hover:bg-black hover:text-white"
+                                        >
+                                            View 240+ Stays
+                                        </Link>
+                                    </div>
+                                </li> */}
+                                    {/* Hot Location Item */}
+                                    {/* Hot Location Item */}
+                                    {/* <li
+                                    className="jos rounded-[20px] p-[20px]"
+                                    data-jos_animation="flip"
+                                    data-jos_delay="0.5"
+                                >
+                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
+                                        <Image
+                                            src="/assets/images/location-1.svg"
+                                            alt="location-img-6"
+                                            width={376}
+                                            height={400}
+                                            className="h-full w-full object-cover"
+                                        />
+                                    </div>
+                                    <div className="mt-5 flex flex-col items-center">
+                                        <div className="font-dmSans text-[26px] hover:text-colorOrangyRed xxl:text-[30px]">
+                                            Jack Fox
+                                        </div>
+                                        <div className="mt-3 flex flex-col items-center gap-1">
+                                            <span className="text-[21px]">
+                                                Uluwatu, Ubud, Nusa Penida, +15
+                                            </span>
+                                            <span>
+                                                🔥 30 Stays booked today!
+                                            </span>
+                                        </div>
+                                        <Link
+                                            href="/portfolio"
+                                            className="button rounded-[50px] border-2 px-20 py-4 mt-4 text-black text-xl  after:bg-black hover:bg-black hover:text-white"
+                                        >
+                                            View 240+ Stays
+                                        </Link>
+                                    </div>
+                                </li> */}
+                                    {/* Hot Location Item */}
+                                </ul>
+                                {/* Hot Location List */}
+                                <div className="jos flex flex-wrap justify-center gap-6 mb-2 mt-20" data-jos_animation="fade">
+                                    <Link
+                                        href={WHATSAPPLINK}
+                                        target="_blank"
+                                        className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
+                                    >
+                                        Find My Perfect Stay
+                                    </Link>
+                                </div>
+                                <div className="flex flax-wrap justify-center items-center	">
+                                    <p className="font-medium text-white">Powered by</p>
+                                    <img src="/assets/images/whatsapp.svg" alt="whatsapp" className="scale-125 ml-2 mr-1" />
+                                    <p className=" text-sm font-semibold text-white">Whatsapp</p>
+                                </div>
+                            </div>
+                            {/* Section Container */}
+                        </div>
+                    </div>
+                    {/* Section Spacer */}
+                </section>
+                {/*...::: Hot Locations Section End :::... */}
 
                 {/*...::: Service Section Start :::... */}
                 <section id="section-service">
@@ -370,276 +640,6 @@ function Home() {
                 </section>
                 {/*...::: CTA & Brand Partners Section End :::... */}
 
-                {/*...::: Hot Locations Section Start :::... */}
-                <section id="team-section">
-                    {/* Section Spacer */}
-                    <div id="locations">
-                        <div className="bg-black pt-20 pb-20 xl:pb-[100px]">
-                            {/* Section Container */}
-                            <div className="global-container">
-                                {/* Section Content Block */}
-                                <div className="jos mt-10 mb-10 text-center lg:mb-16 xl:mb-20">
-                                    <div className="mx-auto md:max-w-xs lg:max-w-xl xl:max-w-[746px]">
-                                        <h2 className="mb-2 text-center font-light text-white">Hot Locations</h2>
-                                        <h4 className="text-center text-gray-500">See our popular Stays</h4>
-                                    </div>
-                                </div>
-                                {/* Section Content Block */}
-                                {/* Hot Location List */}
-                                <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                                    {/* Hot Location Item 1 */}
-                                    {LOCATIONS.map((item, index) => (
-                                        <li key={"li" + index} className="jos rounded-[20px] p-[20px]" data-jos_animation="flip" data-jos_delay="0.1">
-                                            <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
-                                                <Image
-                                                    src={item.locationImgSrc}
-                                                    alt="location-img-1"
-                                                    width={376}
-                                                    height={400}
-                                                    className="h-full w-full object-cover"
-                                                />
-                                            </div>
-                                            <div className="mt-5 flex flex-col items-center">
-                                                <div className="font-dmSans text-[26px] text-white xxl:text-[30px]">{item.locationName}</div>
-                                                <div className="mt-1 flex flex-col items-center gap-4">
-                                                    <span className="text-[18px] text-gray-400">{item.spotsCovered}</span>
-                                                    {/* <span>🔥 {item.staysBooked} Stays booked today!</span> */}
-                                                    <span
-                                                        style={{
-                                                            textTransform: "uppercase",
-                                                            fontWeight: "600",
-                                                            color: item.progressColor,
-                                                            fontSize: "1rem",
-                                                        }}
-                                                    >
-                                                        {item.status}
-                                                    </span>
-                                                    <ProgressBar color={item.progressColor} progress={item.progress} />
-                                                </div>
-                                                {item.staysBooked >= item.moreStaysAvailable ? (
-                                                    <button
-                                                        disabled={true}
-                                                        className="button rounded-[50px] border-0 px-20 py-4 mt-4 text-white bg-[#1A1A1A] text-xl"
-                                                    >
-                                                        SOLD OUT
-                                                    </button>
-                                                ) : (
-                                                    <button
-                                                        onClick={showStays(item)}
-                                                        className="button rounded-[50px] border-0 px-20 py-4 mt-4 text-black bg-white text-xl after:bg-colorOrangyRed hover:text-black"
-                                                    >
-                                                        View {item.moreStaysAvailable}+ Stays
-                                                    </button>
-                                                )}
-                                            </div>
-                                        </li>
-                                    ))}
-
-                                    {/* Hot Location Item */}
-                                    {/* Hot Location Item */}
-                                    {/* <li
-                                    className="jos rounded-[20px] p-[20px]"
-                                    data-jos_animation="flip"
-                                    data-jos_delay="0.2"
-                                >
-                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
-                                        <Image
-                                            src="/assets/images/location-2.svg"
-                                            alt="location-img-2"
-                                            width={376}
-                                            height={400}
-                                            className="h-full w-full object-cover"
-                                        />
-                                    </div>
-                                    <div className="mt-5 flex flex-col items-center">
-                                        <div className="font-dmSans text-[26px] hover:text-colorOrangyRed xxl:text-[30px]">
-                                            Willium Robert
-                                        </div>
-                                        <div className="mt-3 flex flex-col items-center gap-1">
-                                            <span className="text-[21px]">
-                                                Uluwatu, Ubud, Nusa Penida, +15
-                                            </span>
-                                            <span>
-                                                🔥 30 Stays booked today!
-                                            </span>
-                                        </div>
-                                        <Link
-                                            href="/portfolio"
-                                            className="button rounded-[50px] border-2 px-20 py-4 mt-4 text-black text-xl  after:bg-black hover:bg-black hover:text-white"
-                                        >
-                                            View 240+ Stays
-                                        </Link>
-                                    </div>
-                                </li> */}
-                                    {/* Hot Location Item */}
-                                    {/* Hot Location Item */}
-                                    {/* <li
-                                    className="jos rounded-[20px] p-[20px]"
-                                    data-jos_animation="flip"
-                                    data-jos_delay="0.3"
-                                >
-                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
-                                        <Image
-                                            src="/assets/images/location-3.svg"
-                                            alt="location-img-3"
-                                            width={376}
-                                            height={400}
-                                            className="h-full w-full object-cover"
-                                        />
-                                    </div>
-                                    <div className="mt-5 flex flex-col items-center">
-                                        <div className="font-dmSans text-[26px] hover:text-colorOrangyRed xxl:text-[30px]">
-                                            Henry Fayol
-                                        </div>
-                                        <div className="mt-3 flex flex-col items-center gap-1">
-                                            <span className="text-[21px]">
-                                                Uluwatu, Ubud, Nusa Penida, +15
-                                            </span>
-                                            <span>
-                                                🔥 30 Stays booked today!
-                                            </span>
-                                        </div>
-                                        <Link
-                                            href="/portfolio"
-                                            className="button rounded-[50px] border-2 px-20 py-4 mt-4 text-black text-xl  after:bg-black hover:bg-black hover:text-white"
-                                        >
-                                            View 240+ Stays
-                                        </Link>
-                                    </div>
-                                </li> */}
-                                    {/* Hot Location Item */}
-                                    {/* Hot Location Item */}
-                                    {/* <li
-                                    className="jos rounded-[20px] p-[20px]"
-                                    data-jos_animation="flip"
-                                    data-jos_delay="0.4"
-                                >
-                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
-                                        <Image
-                                            src="/assets/images/location-4.svg"
-                                            alt="location-img-4"
-                                            width={376}
-                                            height={400}
-                                            className="h-full w-full object-cover"
-                                        />
-                                    </div>
-                                    <div className="mt-5 flex flex-col items-center">
-                                        <div className="font-dmSans text-[26px] hover:text-colorOrangyRed xxl:text-[30px]">
-                                            Henry Martine
-                                        </div>
-                                        <div className="mt-3 flex flex-col items-center gap-1">
-                                            <span className="text-[21px]">
-                                                Uluwatu, Ubud, Nusa Penida, +15
-                                            </span>
-                                            <span>
-                                                🔥 30 Stays booked today!
-                                            </span>
-                                        </div>
-                                        <Link
-                                            href="/portfolio"
-                                            className="button rounded-[50px] border-2 px-20 py-4 mt-4 text-black text-xl  after:bg-black hover:bg-black hover:text-white"
-                                        >
-                                            View 240+ Stays
-                                        </Link>
-                                    </div>
-                                </li> */}
-                                    {/* Hot Location Item */}
-                                    {/* Hot Location Item */}
-                                    {/* <li
-                                    className="jos rounded-[20px] p-[20px]"
-                                    data-jos_animation="flip"
-                                    data-jos_delay="0.5"
-                                >
-                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
-                                        <Image
-                                            src="/assets/images/location-5.svg"
-                                            alt="location-img-5"
-                                            width={376}
-                                            height={400}
-                                            className="h-full w-full object-cover"
-                                        />
-                                    </div>
-                                    <div className="mt-5 flex flex-col items-center">
-                                        <div className="font-dmSans text-[26px] hover:text-colorOrangyRed xxl:text-[30px]">
-                                            Jack Fox
-                                        </div>
-                                        <div className="mt-3 flex flex-col items-center gap-1">
-                                            <span className="text-[21px]">
-                                                Uluwatu, Ubud, Nusa Penida, +15
-                                            </span>
-                                            <span>
-                                                🔥 30 Stays booked today!
-                                            </span>
-                                        </div>
-                                        <Link
-                                            href="/portfolio"
-                                            className="button rounded-[50px] border-2 px-20 py-4 mt-4 text-black text-xl  after:bg-black hover:bg-black hover:text-white"
-                                        >
-                                            View 240+ Stays
-                                        </Link>
-                                    </div>
-                                </li> */}
-                                    {/* Hot Location Item */}
-                                    {/* Hot Location Item */}
-                                    {/* <li
-                                    className="jos rounded-[20px] p-[20px]"
-                                    data-jos_animation="flip"
-                                    data-jos_delay="0.5"
-                                >
-                                    <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
-                                        <Image
-                                            src="/assets/images/location-1.svg"
-                                            alt="location-img-6"
-                                            width={376}
-                                            height={400}
-                                            className="h-full w-full object-cover"
-                                        />
-                                    </div>
-                                    <div className="mt-5 flex flex-col items-center">
-                                        <div className="font-dmSans text-[26px] hover:text-colorOrangyRed xxl:text-[30px]">
-                                            Jack Fox
-                                        </div>
-                                        <div className="mt-3 flex flex-col items-center gap-1">
-                                            <span className="text-[21px]">
-                                                Uluwatu, Ubud, Nusa Penida, +15
-                                            </span>
-                                            <span>
-                                                🔥 30 Stays booked today!
-                                            </span>
-                                        </div>
-                                        <Link
-                                            href="/portfolio"
-                                            className="button rounded-[50px] border-2 px-20 py-4 mt-4 text-black text-xl  after:bg-black hover:bg-black hover:text-white"
-                                        >
-                                            View 240+ Stays
-                                        </Link>
-                                    </div>
-                                </li> */}
-                                    {/* Hot Location Item */}
-                                </ul>
-                                {/* Hot Location List */}
-                                <div className="jos flex flex-wrap justify-center gap-6 mb-2 mt-20" data-jos_animation="fade">
-                                    <Link
-                                        href={WHATSAPPLINK}
-                                        target="_blank"
-                                        className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
-                                    >
-                                        Find My Perfect Stay
-                                    </Link>
-                                </div>
-                                <div className="flex flax-wrap justify-center items-center	">
-                                    <p className="font-medium text-white">Powered by</p>
-                                    <img src="/assets/images/whatsapp.svg" alt="whatsapp" className="scale-125 ml-2 mr-1" />
-                                    <p className=" text-sm font-semibold text-white">Whatsapp</p>
-                                </div>
-                            </div>
-                            {/* Section Container */}
-                        </div>
-                    </div>
-                    {/* Section Spacer */}
-                </section>
-                {/*...::: Hot Locations Section End :::... */}
-
                 {/*...::: Testimonial Section Start :::... */}
                 <section className="testimonial-section">
                     {/* Section Spacer */}
@@ -673,7 +673,7 @@ function Home() {
                                             <div className="flex items-center gap-x-4">
                                                 <div className="h-[60px] w-[60px] overflow-hidden rounded-full">
                                                     <Image
-                                                        src="/assets/img_placeholder/th-1/testimonial-img-1.jpg"
+                                                        src={`/assets/reviews/${item.imgName}`}
                                                         alt="testimonial-img"
                                                         width="60"
                                                         height="60"
@@ -816,7 +816,7 @@ function Home() {
                                 {/* Content Left Block */}
                                 <div className="jos order-2 overflow-hidden rounded-md" data-jos_animation="fade-left">
                                     <Image
-                                        src="/assets/img_placeholder/th-1/about-image.png"
+                                        src="/assets/images/contact.png"
                                         alt="content-image-2"
                                         width={526}
                                         height={550}
@@ -828,24 +828,33 @@ function Home() {
                                 <div className="jos order-1" data-jos_animation="fade-right">
                                     {/* Section Content Block */}
                                     <div className="mb-6">
-                                        <h2>Delivering the best solutions with AI</h2>
+                                        <h2>Delivering the Perfect Stay Experience</h2>
                                     </div>
                                     {/* Section Content Block */}
                                     <div className="text-lg leading-[1.4] lg:text-[21px]">
                                         <p className="mb-7 last:mb-0">
-                                            Our mission is to empower businesses with AI-powered solutions that increase productivity, improve
-                                            decision-making and drive growth.
+                                            Our mission is to provide travelers with luxurious, handpicked villas and apartments in the world’s most
+                                            beautiful destinations, including Goa, Bali, Thailand, and beyond.
                                         </p>
                                         <p className="mb-7 last:mb-0">
-                                            Since 2016 we have been passionate about helping our clients harness With a team of AI experts and data
-                                            scientists their full potential &amp; stay competitive in an increasingly digital world.
+                                            Since 2020, we’ve been dedicated to crafting unforgettable experiences for our clients. We offer seamless
+                                            booking and exceptional service, ensuring that every stay is as unique and memorable as the location
+                                            itself.
                                         </p>
-                                        <Link
-                                            href="/contact"
-                                            className="button mt-5 rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
-                                        >
-                                            Get in touch
-                                        </Link>
+                                        <div className="jos inline-flex flex-wrap gap-6 mb-2 mt-5" data-jos_animation="fade">
+                                            <Link
+                                                href={WHATSAPPLINK}
+                                                target="_blank"
+                                                className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
+                                            >
+                                                Find My Perfect Stay
+                                            </Link>
+                                        </div>
+                                        <div className="flex flax-wrap items-center	ml-10">
+                                            <p className="font-medium text-black">Powered by</p>
+                                            <img src="/assets/images/whatsapp.svg" alt="whatsapp" className="scale-125 ml-2 mr-1" />
+                                            <p className=" text-sm font-semibold text-black">Whatsapp</p>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* Content Right Block */}
