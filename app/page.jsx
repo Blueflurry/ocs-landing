@@ -49,7 +49,7 @@ function Home() {
                                     <Link
                                         href={WHATSAPPLINK}
                                         target="_blank"
-                                        className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
+                                        className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-lg md:text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
                                     >
                                         Find My Perfect Stay
                                     </Link>
@@ -79,7 +79,7 @@ function Home() {
                 <section id="team-section">
                     {/* Section Spacer */}
                     <div id="locations">
-                        <div className="bg-black pt-20 pb-20 xl:pb-[100px]">
+                        <div className="bg-black pt-10 md:pt-20 pb-20 xl:pb-[100px]">
                             {/* Section Container */}
                             <div className="global-container">
                                 {/* Section Content Block */}
@@ -131,7 +131,7 @@ function Home() {
                                                 ) : (
                                                     <button
                                                         onClick={showStays(item)}
-                                                        className="button rounded-[50px] border-0 px-20 py-4 mt-4 text-black bg-white text-xl after:bg-colorOrangyRed hover:text-black"
+                                                        className="button rounded-[50px] border-0 px-20 py-4 mt-4 text-black bg-white text-sm md:text-xl after:bg-colorOrangyRed hover:text-black"
                                                     >
                                                         View {item.moreStaysAvailable}+ Stays
                                                     </button>
@@ -327,7 +327,7 @@ function Home() {
                                     <Link
                                         href={WHATSAPPLINK}
                                         target="_blank"
-                                        className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
+                                        className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-lg md:text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
                                     >
                                         Find My Perfect Stay
                                     </Link>
@@ -537,7 +537,7 @@ function Home() {
                                 <Link
                                     href={WHATSAPPLINK}
                                     target="_blank"
-                                    className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
+                                    className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-lg md:text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
                                 >
                                     Find My Perfect Stay
                                 </Link>
@@ -570,7 +570,7 @@ function Home() {
                                         slidesPerView={2}
                                         spaceBetween={105}
                                         autoplay={{
-                                            delay: 4000,
+                                            delay: 2000,
                                             disableOnInteraction: false,
                                         }}
                                         modules={[Autoplay]}
@@ -587,47 +587,113 @@ function Home() {
                                         }}
                                     >
                                         <SwiperSlide>
-                                            <Image src="/assets/images/brand-1.svg" alt="brand-1" width="180" height="38" className="max-w-full" />
+                                            <Image
+                                                src="/assets/partners/elivaas.svg"
+                                                alt="elivaas"
+                                                width="150"
+                                                height="20"
+                                                style={{ objectFit: "contain" }}
+                                            />
                                         </SwiperSlide>
                                         <SwiperSlide>
-                                            <Image src="/assets/images/brand-2.svg" alt="brand-2" width="183" height="35" className="max-w-full" />
+                                            <Image
+                                                src="/assets/partners/lohono.png"
+                                                alt="Lohono Stays"
+                                                width="150"
+                                                height="20"
+                                                style={{ objectFit: "contain" }}
+                                            />
                                         </SwiperSlide>
                                         <SwiperSlide>
-                                            <Image src="/assets/images/brand-1.svg" alt="brand-3" width="172" height="35" className="max-w-full" />
+                                            <Image
+                                                src="/assets/partners/masaya.jpeg"
+                                                alt="Masaya Stays"
+                                                width="150"
+                                                height="20"
+                                                style={{ objectFit: "contain" }}
+                                            />
                                         </SwiperSlide>
                                         <SwiperSlide>
-                                            <Image src="/assets/images/brand-2.svg" alt="brand-4" width="175" height="30" className="max-w-full" />
-                                        </SwiperSlide>
-                                        {/* <SwiperSlide>
-                                        <Image
-                                            src="/assets/images/brand-5.svg"
-                                            alt="brand-5"
-                                            width="168"
-                                            height="36"
-                                            className="max-w-full"
-                                        />
-                                    </SwiperSlide> */}
-                                        <SwiperSlide>
-                                            <Image src="/assets/images/brand-1.svg" alt="brand-1" width="180" height="38" className="max-w-full" />
+                                            <Image
+                                                src="/assets/partners/rainforest.webp"
+                                                alt="Rainforest and Talisman"
+                                                width="150"
+                                                height="20"
+                                                style={{ objectFit: "contain" }}
+                                            />
                                         </SwiperSlide>
                                         <SwiperSlide>
-                                            <Image src="/assets/images/brand-2.svg" alt="brand-2" width="183" height="35" className="max-w-full" />
+                                            <Image
+                                                src="/assets/partners/stayvista.png"
+                                                alt="Stay Vista"
+                                                width="150"
+                                                height="20"
+                                                style={{ objectFit: "contain" }}
+                                            />
                                         </SwiperSlide>
                                         <SwiperSlide>
-                                            <Image src="/assets/images/brand-1.svg" alt="brand-3" width="172" height="35" className="max-w-full" />
+                                            <Image
+                                                src="/assets/partners/tbk.png"
+                                                alt="TBK Villas"
+                                                width="120"
+                                                height="30"
+                                                style={{ objectFit: "contain" }}
+                                            />
                                         </SwiperSlide>
                                         <SwiperSlide>
-                                            <Image src="/assets/images/brand-2.svg" alt="brand-4" width="175" height="30" className="max-w-full" />
+                                            <Image
+                                                src="/assets/partners/elivaas.svg"
+                                                alt="elivaas"
+                                                width="150"
+                                                height="20"
+                                                style={{ objectFit: "contain" }}
+                                            />
                                         </SwiperSlide>
-                                        {/* <SwiperSlide>
-                                        <Image
-                                            src="/assets/images/brand-5.svg"
-                                            alt="brand-5"
-                                            width="168"
-                                            height="36"
-                                            className="max-w-full"
-                                        />
-                                    </SwiperSlide> */}
+                                        <SwiperSlide>
+                                            <Image
+                                                src="/assets/partners/lohono.png"
+                                                alt="Lohono Stays"
+                                                width="150"
+                                                height="20"
+                                                style={{ objectFit: "contain" }}
+                                            />
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <Image
+                                                src="/assets/partners/masaya.jpeg"
+                                                alt="Masaya Stays"
+                                                width="150"
+                                                height="20"
+                                                style={{ objectFit: "contain" }}
+                                            />
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <Image
+                                                src="/assets/partners/rainforest.webp"
+                                                alt="Rainforest and Talisman"
+                                                width="150"
+                                                height="20"
+                                                style={{ objectFit: "contain" }}
+                                            />
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <Image
+                                                src="/assets/partners/stayvista.png"
+                                                alt="Stay Vista"
+                                                width="150"
+                                                height="20"
+                                                style={{ objectFit: "contain" }}
+                                            />
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <Image
+                                                src="/assets/partners/tbk.png"
+                                                alt="TBK Villas"
+                                                width="120"
+                                                height="30"
+                                                style={{ objectFit: "contain" }}
+                                            />
+                                        </SwiperSlide>
                                     </Swiper>
                                 </div>
                             </div>
@@ -644,7 +710,7 @@ function Home() {
                 <section className="testimonial-section">
                     {/* Section Spacer */}
                     <div id="reviews">
-                        <div className="pb-20 pt-[120px]">
+                        <div className="pb-[100px]">
                             {/* Section Container */}
                             <div className="global-container">
                                 {/* Section Content Block */}
@@ -734,76 +800,7 @@ function Home() {
                 </section>
                 {/*...::: About Us Section End :::... */}
                 {/*...::: Team Section Start :::... */}
-                <section id="team-section">
-                    {/* Section Container */}
-                    <div className="global-container">
-                        {/* Team Member List */}
-                        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-20 mt-10 xl:mb-[120px] xl:mt-[60px]">
-                            {/* Team Member Item */}
-                            <li className="jos rounded-[20px] bg-colorLinenRuffle p-[20px]" data-jos_animation="flip" data-jos_delay="0.1">
-                                <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
-                                    <Image
-                                        src="/assets/img_placeholder/th-1/team-member-img-1.jpg"
-                                        alt="team-member-img-1"
-                                        width={376}
-                                        height={400}
-                                        className="h-full w-full object-cover"
-                                    />
-                                </div>
-                                <div className="mt-5 text-center">
-                                    <span className="font-dmSans text-[26px] leading-[1.33] hover:text-colorOrangyRed xxl:text-[30px]">
-                                        Naman Thakur
-                                    </span>
-                                    <br />
-                                    <span className="text-[21px]">Founder & CEO</span>
-                                </div>
-                            </li>
-                            {/* Team Member Item */}
-                            {/* Team Member Item */}
-                            <li className="jos rounded-[20px] bg-colorLinenRuffle p-[20px]" data-jos_animation="flip" data-jos_delay="0.1">
-                                <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
-                                    <Image
-                                        src="/assets/img_placeholder/th-1/team-member-img-1.jpg"
-                                        alt="team-member-img-1"
-                                        width={376}
-                                        height={400}
-                                        className="h-full w-full object-cover"
-                                    />
-                                </div>
-                                <div className="mt-5 text-center">
-                                    <span className="font-dmSans text-[26px] leading-[1.33] hover:text-colorOrangyRed xxl:text-[30px]">
-                                        Ujjwal Batra
-                                    </span>
-                                    <br />
-                                    <span className="text-[21px]">Co-Founder & COO</span>
-                                </div>
-                            </li>
-                            {/* Team Member Item */}
-                            {/* Team Member Item */}
-                            <li className="jos rounded-[20px] bg-colorLinenRuffle p-[20px]" data-jos_animation="flip" data-jos_delay="0.1">
-                                <div className="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
-                                    <Image
-                                        src="/assets/img_placeholder/th-1/team-member-img-1.jpg"
-                                        alt="team-member-img-1"
-                                        width={376}
-                                        height={400}
-                                        className="h-full w-full object-cover"
-                                    />
-                                </div>
-                                <div className="mt-5 text-center">
-                                    <span className="font-dmSans text-[26px] leading-[1.33] hover:text-colorOrangyRed xxl:text-[30px]">
-                                        Siddhant Jain
-                                    </span>
-                                    <br />
-                                    <span className="text-[21px]">Chief Technical Officer</span>
-                                </div>
-                            </li>
-                            {/* Team Member Item */}
-                        </ul>
-                        {/* Team Member List */}
-                    </div>
-                    {/* Section Container */}
-                </section>
+
                 {/*...::: Team Section End :::... */}
                 {/*...::: Content Section Start :::... */}
                 <div id="contact"></div>
@@ -845,7 +842,7 @@ function Home() {
                                             <Link
                                                 href={WHATSAPPLINK}
                                                 target="_blank"
-                                                className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
+                                                className="button rounded-[50px] border-2 border-colorPrimaryGreen bg-colorPrimaryGreen px-14 py-4 text-black text-lg md:text-xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black"
                                             >
                                                 Find My Perfect Stay
                                             </Link>

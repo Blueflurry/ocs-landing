@@ -52,7 +52,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
     };
 
     return (
-        <div className="menu-block-wrapper">
+        <div className="menu-block-wrapper hidden md:block">
             <div onClick={handleMenu} className={`menu-overlay ${mobileMenu && "active"}`} />
             <nav className={`menu-block ${mobileMenu && "active"}`} id="append-menu-header">
                 <div className={`mobile-menu-head ${mobileSubMenu && "active"}`}>
