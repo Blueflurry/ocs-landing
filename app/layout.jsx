@@ -60,12 +60,12 @@ export default function RootLayout({ children }) {
             <head>
                 <title>OneClick Stays - Perfect luxury stays in budget</title>
                 <link rel="shortcut icon" href="favicon.png" type="image/png" />
-                <GoogleTagManager gtmId="GTM-P9ZDRGN9" />
+                <GoogleTagManager gtmId="G-WWB084J6BG" />
             </head>
             <body className={`${DMSans.variable} ${ClashDisplay.variable} ${Raleway.variable} ${SpaceGrotesk.variable} ${inter.variable}`}>
                 <noscript>
                     <iframe
-                        src="https://www.googletagmanager.com/ns.html?id=GTM-P9ZDRGN9"
+                        src="https://www.googletagmanager.com/ns.html?id=G-WWB084J6BG"
                         height="0"
                         width="0"
                         style={{ display: "none", visibility: "hidden" }}
